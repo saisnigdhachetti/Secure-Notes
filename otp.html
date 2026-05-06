@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Verify OTP — Secure Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scene">
+  <div class="wrapper">
+
+    <div class="logo">
+      <div class="logo-icon">🔐</div>
+      <div class="logo-text">Secure Notes</div>
+    </div>
+
+    <div class="card">
+      <h2 class="otp-title">Two-Factor Verification</h2>
+      <p class="otp-sub">Enter the 6-digit code sent to your email</p>
+
+      <div id="otp-alert" class="alert"></div>
+
+      <div class="otp-boxes">
+        <input class="otp-input" maxlength="1" type="text" oninput="otpMove(this, 0)">
+        <input class="otp-input" maxlength="1" type="text" oninput="otpMove(this, 1)">
+        <input class="otp-input" maxlength="1" type="text" oninput="otpMove(this, 2)">
+        <input class="otp-input" maxlength="1" type="text" oninput="otpMove(this, 3)">
+        <input class="otp-input" maxlength="1" type="text" oninput="otpMove(this, 4)">
+        <input class="otp-input" maxlength="1" type="text" oninput="otpMove(this, 5)">
+      </div>
+
+      <button class="btn btn-primary" onclick="handleOTP()">Verify & Continue →</button>
+
+      <div class="hint">
+        Didn't receive code? <a onclick="resendOTP()">Resend</a>
+      </div>
+    </div>
+
+    <div class="secure-badge"><span>🛡</span> End-to-end encrypted · Zero knowledge</div>
+  </div>
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>

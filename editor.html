@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editor — Secure Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <div class="logo-icon" style="width:34px;height:34px;font-size:16px;">🔐</div>
+    <span class="logo-text" style="font-size:1.2rem;">Secure Notes</span>
+  </div>
+  <div class="nav-right">
+    <button class="btn-logout" onclick="window.location.href='dashboard.html'">← Back</button>
+    <button class="btn btn-primary" style="width:auto;padding:10px 22px;" onclick="saveNote()">Save Note 🔒</button>
+  </div>
+</nav>
+
+<div class="editor-scene">
+  <div id="editor-alert" class="alert" style="margin-bottom:1rem;"></div>
+
+  <input
+    type="text"
+    id="note-title"
+    class="note-title-input"
+    placeholder="Note title...">
+
+  <textarea
+    id="note-body"
+    class="note-body-input"
+    placeholder="Start writing your secure note here...&#10;&#10;This note will be encrypted before saving. Only you can read it."></textarea>
+
+  <div class="editor-footer">
+    <span class="encrypt-badge">🔒 This note will be encrypted before saving</span>
+    <button class="btn-delete" id="delete-btn" onclick="deleteNote()" style="display:none;">🗑 Delete Note</button>
+  </div>
+</div>
+
+<script src="crypto.js"></script>
+<script src="editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scene">
+  <div class="wrapper">
+
+    <div class="logo">
+      <div class="logo-icon">🔐</div>
+      <div class="logo-text">Secure Notes</div>
+    </div>
+
+    <div class="card">
+      <div class="tabs">
+        <button class="tab active" onclick="switchTab('login')">Sign In</button>
+        <button class="tab" onclick="switchTab('signup')">Create Account</button>
+      </div>
+
+      <!-- LOGIN -->
+      <div class="panel active" id="panel-login">
+        <div id="login-alert" class="alert"></div>
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" id="login-email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" id="login-pass" placeholder="••••••••">
+          <span class="eye" onclick="togglePass('login-pass', this)">👁</span>
+        </div>
+        <div class="forgot"><a href="#">Forgot password?</a></div>
+        <button class="btn btn-primary" onclick="handleLogin()">Sign In →</button>
+        <div class="hint">No account? <a onclick="switchTab('signup')">Create one</a></div>
+      </div>
+
+      <!-- SIGNUP -->
+      <div class="panel" id="panel-signup">
+        <div id="signup-alert" class="alert"></div>
+        <div class="name-grid">
+          <div class="field">
+            <label>First Name</label>
+            <input type="text" id="fname" placeholder="Jane">
+          </div>
+          <div class="field">
+            <label>Last Name</label>
+            <input type="text" id="lname" placeholder="Doe">
+          </div>
+        </div>
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" id="signup-email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" id="signup-pass" placeholder="Min. 8 characters" oninput="checkStrength(this.value)">
+          <span class="eye" onclick="togglePass('signup-pass', this)">👁</span>
+          <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+        </div>
+        <button class="btn btn-primary" onclick="handleSignup()">Create Account →</button>
+        <div class="hint">Have an account? <a onclick="switchTab('login')">Sign in</a></div>
+      </div>
+    </div>
+
+    <div class="secure-badge"><span>🛡</span> End-to-end encrypted · Zero knowledge</div>
+  </div>
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>

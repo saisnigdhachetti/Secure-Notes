@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard — Secure Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="nav-logo">
+    <div class="logo-icon" style="width:34px;height:34px;font-size:16px;">🔐</div>
+    <span class="logo-text" style="font-size:1.2rem;">Secure Notes</span>
+  </div>
+  <div class="nav-right">
+    <span class="nav-user" id="nav-username"></span>
+    <button class="btn-logout" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<!-- Main -->
+<div class="dashboard-scene">
+
+  <div class="dashboard-header">
+    <h1 class="dash-title">My Notes</h1>
+    <button class="btn btn-primary" style="width:auto;padding:12px 24px;" onclick="window.location.href='editor.html'">+ New Note</button>
+  </div>
+
+  <!-- Search -->
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="🔍  Search notes..." oninput="filterNotes()">
+  </div>
+
+  <!-- Notes Grid -->
+  <div class="notes-grid" id="notes-grid">
+    <div class="empty-state" id="empty-state">
+      <div style="font-size:3rem;">📝</div>
+      <p>No notes yet. Create your first one!</p>
+    </div>
+  </div>
+
+</div>
+
+<script src="crypto.js"></script>
+<script src="dashboard.js"></script>
+</body>
+</html>
